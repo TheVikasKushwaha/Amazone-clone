@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amazon Clone</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        box-sizing: border-box;
+      }
+
+      .navbar {
+        height: 60px;
+        background-color: #0f1111;
+        color: white;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        gap: 20px;
+        justify-content: space-between;
+      }
+
+      .nav-left,
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .nav-logo {
+        height: 50px;
+        width: 120px;
+        cursor: pointer;
+      }
+
+      .logo {
+        background-image: url("https://pngimg.com/uploads/amazon/small/amazon_PNG25.png");
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 100%;
+        width: 100%;
+      }
+
+      .border {
+        border: 2px solid transparent;
+      }
+
+      .border:hover {
+        border: 1px solid white;
+      }
+
+      .nav-address {
+        padding: 5px;
+      }
+
+      .add-f {
+        color: #cccccc;
+        font-size: 0.75rem;
+      }
+
+      .add-s {
+        font-size: 0.9rem;
+        margin-left: 5px;
+      }
+
+      .add-icon {
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-search {
+        display: flex;
+        flex-grow: 1;
+        /* max-width: 900px; */
+        height: 40px;
+        border-radius: 4px;
+      }
+
+      .nav-search select {
+        width: 50px;
+        border: none;
+        border-radius: 4px 0 0 4px;
+        padding-left: 5px;
+      }
+
+      .nav-search input {
+        flex-grow: 1;
+        border: none;
+        padding-left: 10px;
+        min-width: 0;
+      }
+
+      .search-icon {
+        width: 45px;
+        background-color: #febd69;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0 4px 4px 0;
+        cursor: pointer;
+      }
+
+      .search-icon i {
+        color: black;
+      }
+
+      .nav-search:hover {
+        border: 2px solid orange;
+      }
+
+      .nav-signin,
+      .nav-return {
+        cursor: pointer;
+      }
+
+      .nav-signin p,
+      .nav-return p {
+        font-size: 0.75rem;
+        margin: 0;
+      }
+
+      .nav-second {
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+
+      .nav-cart {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+      }
+
+      .nav-cart i {
+        font-size: 24px;
+      }
+
+      .nav-cart span {
+        font-weight: 700;
+      }
+      .pannel {
+        height: 40px;
+        background-color: #222f3a;
+        display: flex;
+        justify-content: space-evenly;
+        color: white;
+        align-items: center;
+        text-align: start;
+      }
+      .pannel>p{
+        cursor: pointer;
+      }
+      .pannel-all {
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .pannel-deal {
+        margin-left: 300px;
+        font-weight: 700;
+        font-size: 20px;
+      }
+      .pannel-ops p {
+        margin-right: 20px;
+      }
+      .hero-pannel {
+        height: 500px;
+        background-size: cover;
+        background-image: url(img4.jpg);
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: flex-end;
+      }
+      .hero-msg {
+        color: black;
+        background-color: white;
+        height: 40px;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        width: 80%;
+        margin-bottom: 25px;
+      }
+      .hero-msg p {
+        margin-top: 10px;
+        width: fit-content;
+      }
+      .hero-msg a {
+        color: #007185;
+      }
+      .shop-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        background-color: rgb(244, 174, 186);
+      }
+      .shop-content > div{
+        cursor: pointer;
+      }
+      .box {
+        /* border: 2px solid black; */
+        height: 400px;
+        width: 23%;
+        background-color: white;
+        padding: 20px 0px 15px;
+        margin-top: 15px;
+      }
+      .box-image {
+        height: 300px;
+        background-size: contain;
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+      .box-arr {
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+      .box-arr p {
+        color: #007185;
+        margin-top: 5px;
+      }
+      body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      }
+.footer {
+  background-color: #232f3e;
+  color: white;
+}
+
+.back-to-top {
+  background-color: #37475a;
+  text-align: center;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.back-to-top:hover {
+  background-color: #485769;
+}
+
+.footer-main {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+  border-bottom: 1px solid #3a4553;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 200px;
+  margin: 10px;
+}
+
+.footer-column h4 {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.footer-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.footer-column ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 20px;
+  font-size: 12px;
+  background-color: #131a22;
+}
+
+@media (max-width: 768px) {
+  .footer-main {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="navbar">
+        <!-- Left -->
+        <div class="nav-left">
+          <div class="nav-logo border">
+            <div class="logo"></div>
+          </div>
+
+          <div class="nav-address border">
+            <p class="add-f">Deliver to</p>
+            <div class="add-icon">
+              <i class="fa-solid fa-location-dot"></i>
+              <p class="add-s">India</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Search -->
+        <div class="nav-search">
+          <select>
+            <option>All</option>
+          </select>
+          <input placeholder="Search Amazon" />
+          <div class="search-icon">
+            <i class="fa fa-search"></i>
+          </div>
+        </div>
+
+        <!-- Right -->
+        <div class="nav-right">
+          <div class="nav-signin border">
+            <p>Hello, sign in</p>
+            <p class="nav-second">Account & Lists</p>
+          </div>
+
+          <div class="nav-return border">
+            <p>Returns</p>
+            <p class="nav-second">& Orders</p>
+          </div>
+
+          <div class="nav-cart border">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span>Cart</span>
+          </div>
+        </div>
+      </div>
+      <div class="pannel">
+        <div class="pannel-all border">
+          <i class="fa-solid fa-bars"></i>
+          All
+        </div>
+
+        <p>Today's Deals</p>
+        <p>Registry</p>
+        <p>Prime Video</p>
+        <p>Gift Cards</p>
+        <p>Customer Service</p>
+        <p>Sell</p>
+
+        <div class="pannel-deal border">shop deal in</div>
+      </div>
+    </header>
+    <div class="hero-pannel">
+      <div class="hero-msg">
+        <p>
+          You are on amazon.com. You can also shop on Amazon India for millions
+          of products with fast local delivery.<a>
+            Click here to go to amazon.in</a
+          >
+        </p>
+      </div>
+    </div>
+    <div class="shop-content">
+      <div class="box-1 box border">
+        <div class="box-arr">
+          <h2>Best Sellers in Beauty & Personal Care</h2>
+          <div
+            class="box-image"
+            style="background-image: url('img5.jpg')"
+          ></div>
+          <p>See more</p>
+        </div>
+      </div>
+      <div class="box-2 box border">
+        <div class="box-arr">
+          <h2>Gifts for Dad under to make him happy $25</h2>
+          <div
+            class="box-image"
+            style="background-image: url('img6.jpg')"
+          ></div>
+          <p>See more</p>
+        </div>
+      </div>
+      <div class="box-3 box border">
+        <div class="box-arr">
+          <h2>Toys for boy any every type under $25</h2>
+          <div
+            class="box-image"
+            style="background-image: url('img7.jpg')"
+          ></div>
+          <p>See more</p>
+        </div>
+      </div>
+      <div class="box-4 box border">
+        <div class="box-arr">
+          <h2>electronics & accessories Up to 50% off</h2>
+          <div
+            class="box-image"
+            style="background-image: url('img0.jpg')"
+          ></div>
+          <p>See more</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="shop-content">
+    <div class="box-1 box border">
+      <div class="box-arr">
+        <h2>Best Selling mackbook under budget</h2>
+        <div
+          class="box-image"
+          style="background-image: url('mac3.jpg')"
+        ></div>
+        <p>See more</p>
+      </div>
+    </div>
+    <div class="box-2 box border">
+      <div class="box-arr">
+        <h2>Letest tranding headphone with noise cancelling</h2>
+        <div
+          class="box-image"
+          style="background-image: url('drs.jpg')"
+        ></div>
+        <p>See more</p>
+      </div>
+    </div>
+    <div class="box-3 box border">
+      <div class="box-arr">
+        <h2>Lightvice products every type under $25</h2>
+        <div
+          class="box-image"
+          style="background-image: url('11.jpg')"
+        ></div>
+        <p>See more</p>
+      </div>
+    </div>
+    <div class="box-4 box border">
+      <div class="box-arr">
+        <h2>motorola edge 50 fusion get Up to 50% off</h2>
+        <div
+          class="box-image"
+          style="background-image: url('ks.webp')"
+        ></div>
+        <p>See more</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">
+      Back to top
+    </div>
+
+    <div class="footer-main">
+      <div class="footer-column">
+        <h4>Get to Know Us</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press Releases</a></li>
+          <li><a href="#">Amazon Science</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Connect with Us</h4>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Make Money with Us</h4>
+        <ul>
+          <li><a href="#">Sell on Amazon</a></li>
+          <li><a href="#">Affiliate Program</a></li>
+          <li><a href="#">Advertise Your Products</a></li>
+          <li><a href="#">Amazon Pay</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Let Us Help You</h4>
+        <ul>
+          <li><a href="#">COVID-19 Help</a></li>
+          <li><a href="#">Your Account</a></li>
+          <li><a href="#">Returns Centre</a></li>
+          <li><a href="#">Help</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2025 YourCompanyName. This is an Amazon-style footer clone for educational purposes only.
+    </div>
+  </div>
+  <script>
+    alert("are you want to access these page");
+  </script>
+  </body>
+</html>
